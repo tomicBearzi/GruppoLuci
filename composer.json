@@ -1,0 +1,12 @@
+{
+    "name": "fas_alb/colori",
+    "description": "Un progetto scolastico per La raccolta dei colori preferidi dei professori.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "defuse/php-encryption": "^2.4",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
