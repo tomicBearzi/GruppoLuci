@@ -3,10 +3,13 @@ session_start();
 include 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $code = $_POST['code'];
+    $code = trim($_POST['input1']) . trim($_POST['input2']) . trim($_POST['input3']) . trim($_POST['input4']) . trim($_POST['input5']);
+
+    echo "Codice inviato: $code<br>";
+    echo "Codice sessione: " . $_SESSION['2fa_code'] . "<br>";
 
     if (!isset($_SESSION['2fa_code']) || $code !== $_SESSION['2fa_code']) {
-        header("Location: 2fa.php?error=1");
+        echo "Codice non valido.";
         exit();
     }
 
