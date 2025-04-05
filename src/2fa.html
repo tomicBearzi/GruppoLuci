@@ -58,11 +58,11 @@
         <h2>Verifica a 2 Fattori</h2>
         <form id="verificationForm" action="/verify" method="POST">
             <div class="input-group">
-                <input type="text" id="input1" maxlength="1" oninput="moveFocus(1)">
-                <input type="text" id="input2" maxlength="1" oninput="moveFocus(2)">
-                <input type="text" id="input3" maxlength="1" oninput="moveFocus(3)">
-                <input type="text" id="input4" maxlength="1" oninput="moveFocus(4)">
-                <input type="text" id="input5" maxlength="1" oninput="submitForm()">
+                <input type="text" id="input1" maxlength="1" oninput="moveFocus(1)" onkeydown="handleBackspace(event, 1)">
+                <input type="text" id="input2" maxlength="1" oninput="moveFocus(2)" onkeydown="handleBackspace(event, 2)">
+                <input type="text" id="input3" maxlength="1" oninput="moveFocus(3)" onkeydown="handleBackspace(event, 3)">
+                <input type="text" id="input4" maxlength="1" oninput="moveFocus(4)" onkeydown="handleBackspace(event, 4)">
+                <input type="text" id="input5" maxlength="1" oninput="submitForm()" onkeydown="handleBackspace(event, 5)">
             </div>
             <button type="submit" class="btn" style="display: none;">Invia</button>
         </form>
@@ -91,6 +91,16 @@
             // Se tutte le caselle sono riempite, invia il form
             if (allFilled) {
                 form.submit();
+            }
+        }
+
+        function handleBackspace(event, current) {
+            // Verifica se il tasto premuto è Backspace e se la casella è vuota
+            if (event.key === "Backspace" && document.getElementById('input' + current).value === "") {
+                const prevInput = document.getElementById('input' + (current - 1));
+                if (prevInput) {
+                    prevInput.focus();
+                }
             }
         }
     </script>
