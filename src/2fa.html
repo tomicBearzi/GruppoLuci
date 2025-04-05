@@ -95,7 +95,7 @@
         }
 
         function handleBackspace(event, current) {
-            // Verifica se il tasto premuto è Backspace e se la casella è vuota
+            // Verifica se il tasto premuto è Backspace e se la casella è vuota gay
             if (event.key === "Backspace" && document.getElementById('input' + current).value === "") {
                 const prevInput = document.getElementById('input' + (current - 1));
                 if (prevInput) {
