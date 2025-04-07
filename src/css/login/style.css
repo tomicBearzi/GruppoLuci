@@ -136,6 +136,21 @@ a:hover{
     }
 
     .login-container{
+        width: 150%;
+        padding: 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    h2{
+        margin: 20px 0;
+    }
+
+    .container{
+        margin: 0 30%;
+    }
+
+    .login-container{
         padding: 30px;
     }
 }
