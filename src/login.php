@@ -21,13 +21,13 @@
         <div class="login-container">
             <!-- Messaggi di errore o successo -->
             <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-                <p style="color: red;">Email o password invalidi.</p>
+                <p style="color: #E24343; margin-bottom: 20px;">E-mail o password invalidi.</p>
             <?php elseif (isset($_GET['error']) && $_GET['error'] == 3): ?>
-                <p style="color: red;">Conferma la tua email prima di accedere.</p>
+                <p style="color: #E24343; margin-bottom: 20px;">Conferma la tua E-mail prima di accedere.</p>
             <?php elseif (isset($_GET['confirmed']) && $_GET['confirmed'] == 1): ?>
-                <p style="color: green;">Email confermata. Ora puoi accedere.</p>
+                <p style="color: #4BC047; margin-bottom: 20px;">E-mail confermata. Ora puoi accedere.</p>
             <?php elseif (isset($_GET['success']) && $_GET['success'] == 1): ?>
-                <p style="color: green;">Registrazione effettuata con successo. Controlla la tua casella di posta per la
+                <p style="color: #4BC047; margin-bottom: 20px;">Registrazione effettuata con successo. Controlla la tua casella di posta per la
                     conferma.</p>
             <?php endif; ?>
 

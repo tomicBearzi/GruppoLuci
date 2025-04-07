@@ -21,11 +21,11 @@
         <div class="registration-container">
             <!-- Messaggi di errore -->
             <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-                <p style="color: red;">Email già usata.</p>
+                <p style="color: #E24343; margin-bottom: 20px;">E-mail già in uso.</p>
             <?php elseif (isset($_GET['error']) && $_GET['error'] == 2): ?>
-                <p style="color: red;">Le Password non combaciano.</p>
+                <p style="color: #E24343; margin-bottom: 20px;">Le password non combaciano.</p>
             <?php elseif (isset($_GET['error']) && $_GET['error'] == 3): ?>
-                <p style="color: red;">Email non valida.</p>
+                <p style="color: #E24343; margin-bottom: 20px;">E-mail non valida.</p>
             <?php endif; ?>
 
             <!-- Form di registrazione -->
