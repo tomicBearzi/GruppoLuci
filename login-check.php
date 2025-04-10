@@ -42,6 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
+    if ($role === 'Secretary') {
+        $_SESSION['authenticated'] = true;
+        $_SESSION['user_email'] = $email;
+        header("Location: manage.php");
+        exit();
+    }
+
     // Genera il codice 2FA per altri ruoli
     $two_fa_code = str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
     $_SESSION['2fa_code'] = $two_fa_code;
