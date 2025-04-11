@@ -21,31 +21,65 @@ $result = $conn->query("SELECT * FROM users WHERE id = $id");
 $user = $result->fetch_assoc();
 ?>
 
+<!DOCTYPE html>
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticazione</title>
+    <title>Modifica Utente</title>
     <link rel="icon" href="img/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./css/edit_user/style.css">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=rajdhani@300,400,500,600,700&display=swap" rel="stylesheet">
 </head>
 
-<h2>Modifica Utente</h2>
-<form method="post">
-    <!-- ID visibile ma non modificabile -->
-    ID: <input type="text" value="<?= $user['id'] ?>" disabled><br>
-    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+<body>
+    <div class="top-bar">
+        <img class="logo" src="img/logo.svg">
+    </div>
+    <div class="container">
+        <h2>Modifica Utente</h2>
+        
+        <div class="edit-container">
+            <form method="post">
+                <!-- ID Field -->
+                <div class="form-group">
+                    <label for="id-display">ID</label>
+                    <input type="text" id="id-display" value="<?= $user['id'] ?>" disabled>
+                    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                </div>
 
-    <!-- Email visibile ma non modificabile -->
-    Email: <input type="email" value="<?= $user['email'] ?>" disabled><br>
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="<?= $user['email'] ?>" disabled>
+                </div>
 
-    Nome: <input type="text" name="first_name" value="<?= $user['first_name'] ?>"><br>
-    Cognome: <input type="text" name="last_name" value="<?= $user['last_name'] ?>"><br>
-    Ruolo: 
-    <select name="role">
-        <?php foreach (['Visitor', 'Secretary', 'Administrator', 'Totem'] as $r): ?>
-            <option value="<?= $r ?>" <?= $user['Role'] == $r ? 'selected' : '' ?>><?= $r ?></option>
-        <?php endforeach; ?>
-    </select><br>
-    <button type="submit">Salva</button>
-</form>
+                <!-- First Name Field -->
+                <div class="form-group">
+                    <label for="first_name">Nome</label>
+                    <input type="text" id="first_name" name="first_name" value="<?= $user['first_name'] ?>">
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="form-group">
+                    <label for="last_name">Cognome</label>
+                    <input type="text" id="last_name" name="last_name" value="<?= $user['last_name'] ?>">
+                </div>
+
+                <!-- Role Field -->
+                <div class="form-group">
+                    <label for="role">Ruolo</label>
+                    <select id="role" name="role">
+                        <?php foreach (['Visitor', 'Secretary', 'Administrator', 'Totem'] as $r): ?>
+                            <option value="<?= $r ?>" <?= $user['Role'] == $r ? 'selected' : '' ?>><?= $r ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <button type="submit">Salva Modifiche</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
