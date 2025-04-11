@@ -13,6 +13,10 @@ $result = $conn->query("SELECT * FROM users");
     <button type="submit">Vai alle visite in corso</button>
 </form>
 
+<?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+    <p style="color: #4BC047; margin-bottom: 20px;">Utente Aggiornato Correttamente.</p>
+<?php endif; ?>
+
 <h2>Lista Utenti</h2>
 <table border="1">
     <tr>

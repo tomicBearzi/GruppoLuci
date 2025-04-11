@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, Role=? WHERE id=?");
     $stmt->bind_param("sssi", $first_name, $last_name, $role, $id);
     $stmt->execute();
-
-    echo "Utente aggiornato! <a href='user_list.php'>Torna alla lista</a>";
+    
+    header("Location: user_list.php?sucsess=1");
     exit;
 }
 
