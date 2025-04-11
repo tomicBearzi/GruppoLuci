@@ -18,8 +18,14 @@ $result = $conn->query("SELECT * FROM users");
 </head>
 
 <body>
-    <div class="top-bar">
+<div class="top-bar">
         <img class="logo" src="img/logo.svg">
+        <?  if (!isset($_SESSION['authenticated'])) { ?>
+                <a class="logout-a" href="logout.php">Logout</a>
+        <?  } ?>
+        <form action="in_progress_visits.php" method="get">
+            <button type="submit" class="visits-btn">Visite in corso</button>
+        </form>
     </div>
     
     <div class="container">
