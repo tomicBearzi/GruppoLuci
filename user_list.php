@@ -5,6 +5,10 @@ $conn = openConnection();
 $result = $conn->query("SELECT * FROM users");
 ?>
 
+<form action="logout.php" method="post" style="margin-bottom: 10px;">
+    <button type="submit">Logout</button>
+</form>
+
 <form action="in_progress_visits.php" method="get" style="margin-bottom: 20px;">
     <button type="submit">Vai alle visite in corso</button>
 </form>
