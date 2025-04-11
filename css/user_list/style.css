@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Satoshi';
+    font-weight: 400;
+}
+
+body {
+    background-color: #fffbf4;
+    min-height: 100vh;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 9vh;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #565449;
+    padding: 10px;
+}
+
+.logo {
+    height: 100%;
+    filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(2085%) hue-rotate(53deg) brightness(116%) contrast(118%);
+}
+
+.container {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+button {
+    height: 45px;
+    font-size: 16px;
+    font-family: 'Rajdhani';
+    font-weight: 600;
+    color: #fffbf4;
+    text-transform: uppercase;
+    background-color: #565449;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #35342d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn {
+    background-color: #E24343;
+}
+
+.logout-btn:hover {
+    background-color: #c03939;
+}
+
+.visits-btn {
+    background-color: #4BC047;
+}
+
+.visits-btn:hover {
+    background-color: #3aa037;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.success-message p {
+    font-family: 'Rajdhani';
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h2 {
+    font-family: 'Rajdhani';
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #565449;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.table-container {
+    background-color: #d8cfbc;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #565449;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #c4bbaa;
+}
+
+th {
+    font-family: 'Rajdhani';
+    font-weight: 700;
+    background-color: #c4bbaa;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+tr:hover {
+    background-color: #e8e1d3;
+}
+
+.edit-link {
+    color: #565449;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Rajdhani';
+}
+
+.edit-link:hover {
+    color: #35342d;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+}
