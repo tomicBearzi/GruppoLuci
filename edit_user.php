@@ -21,6 +21,15 @@ $result = $conn->query("SELECT * FROM users WHERE id = $id");
 $user = $result->fetch_assoc();
 ?>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticazione</title>
+    <link rel="icon" href="img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/edit_user/style.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=rajdhani@300,400,500,600,700&display=swap" rel="stylesheet">
+</head>
+
 <h2>Modifica Utente</h2>
 <form method="post">
     <!-- ID visibile ma non modificabile -->
