@@ -9,6 +9,7 @@
 body {
     background-color: #fffbf4;
     min-height: 100vh;
+    color: #565449;
 }
 
 .top-bar {
@@ -52,6 +53,7 @@ button {
     outline: none;
     padding: 0 20px;
     cursor: pointer;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
@@ -77,18 +79,25 @@ button:hover {
 }
 
 .success-message {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 15px;
+    background-color: #e6f7e6;
+    color: #2e7d32;
+    padding: 15px 20px;
     border-radius: 10px;
     margin-bottom: 25px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 4px solid #4BC047;
+}
+
+.success-message svg {
+    stroke: #2e7d32;
 }
 
 .success-message p {
     font-family: 'Rajdhani';
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 h2 {
@@ -97,56 +106,74 @@ h2 {
     font-weight: 700;
     text-transform: uppercase;
     color: #565449;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
     text-align: center;
 }
 
 .table-container {
-    background-color: #d8cfbc;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
     border-radius: 15px;
-    padding: 20px;
-    overflow-x: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e0d9c8;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     color: #565449;
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #c4bbaa;
+    font-size: 15px;
 }
 
 th {
     font-family: 'Rajdhani';
     font-weight: 700;
-    background-color: #c4bbaa;
+    background-color: #f5f2ea;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 14px;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #e0d9c8;
+    position: sticky;
+    top: 0;
 }
 
-tr:hover {
-    background-color: #e8e1d3;
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0ebe1;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #f9f7f2;
 }
 
 .edit-link {
     color: #565449;
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease;
     font-family: 'Rajdhani';
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #f0ebe1;
+    display: inline-block;
 }
 
 .edit-link:hover {
-    color: #35342d;
-    text-decoration: underline;
+    color: #fffbf4;
+    background-color: #565449;
+    text-decoration: none;
 }
 
+/* Responsive table */
 @media (max-width: 768px) {
     .container {
         padding: 20px 15px;
@@ -160,8 +187,43 @@ tr:hover {
         width: 100%;
     }
     
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
     th, td {
-        padding: 10px 8px;
+        padding: 10px 12px;
         font-size: 14px;
+    }
+    
+    /* Responsive table cells */
+    td {
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    td:before {
+        position: absolute;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: 600;
+        color: #888;
+        font-family: 'Rajdhani';
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 28px;
+    }
+    
+    .success-message {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
     }
 }
