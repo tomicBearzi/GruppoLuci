@@ -5,6 +5,10 @@ $conn = openConnection();
 $result = $conn->query("SELECT * FROM visit WHERE visit_status = 'In_Progress'");
 ?>
 
+<form action="user_list.php" method="get" style="margin-bottom: 20px;">
+    <button type="submit">Vai alla lista utenti</button>
+</form>
+
 <h2>Visite in corso</h2>
 <table border="1">
     <tr>
