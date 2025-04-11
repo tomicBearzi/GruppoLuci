@@ -1,154 +1,65 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Satoshi';
-    font-weight: 400;
-}
-
-body {
-    background-color: #fffbf4;
-    min-height: 100vh;
-    color: #565449;
-}
-
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 9vh;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    background-color: #565449;
-    padding: 10px 20px;
-}
-
-.logo {
-    height: 100%;
-    filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(2085%) hue-rotate(53deg) brightness(116%) contrast(118%);
-}
-
-.top-bar .logout-a {
-    color: #fffbf4;
-    text-decoration: none;
-    font-family: 'Rajdhani';
-    font-weight: 600;
-    padding: 8px 15px;
-    border-radius: 6px;
-    background-color: #E24343;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.top-bar .logout-a:hover {
-    background-color: #c03939;
-}
-
-.top-bar .visits-btn {
-    height: 100%;
-    font-size: 14px;
-    font-family: 'Rajdhani';
-    font-weight: 600;
-    color: #fffbf4;
-    text-transform: uppercase;
-    background-color: #4BC047;
-    transition: all 0.3s ease;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    padding: 0 15px;
-    cursor: pointer;
-}
-
-.top-bar .visits-btn:hover {
-    background-color: #3aa037;
-}
-
-.container {
-    padding: 30px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.action-buttons {
-    display: none; /* Hidden since buttons are now in top-bar */
-}
-
-.success-message {
-    background-color: #e6f7e6;
-    color: #2e7d32;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-left: 4px solid #4BC047;
-}
-
-.success-message svg {
-    stroke: #2e7d32;
-}
-
-.success-message p {
-    font-family: 'Rajdhani';
-    font-weight: 600;
-    font-size: 16px;
-}
-
-h2 {
-    font-family: 'Rajdhani';
-    font-size: 35px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #565449;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 25px;
-    text-align: center;
-}
+/* [Previous styles remain the same until .table-container] */
 
 .table-container {
     background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
     border-radius: 15px;
-    padding: 0;
-    overflow: hidden;
+    padding: 20px;
     border: 1px solid #e0d9c8;
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     color: #565449;
     font-size: 15px;
+    margin: 0;
 }
 
 th {
     font-family: 'Rajdhani';
     font-weight: 700;
-    background-color: #f5f2ea;
+    background-color: #565449;
+    color: #fffbf4;
     text-transform: uppercase;
     font-size: 14px;
     padding: 15px;
     text-align: left;
-    border-bottom: 2px solid #e0d9c8;
     position: sticky;
     top: 0;
+    border: none;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
 }
 
 td {
-    padding: 12px 15px;
+    padding: 15px;
     border-bottom: 1px solid #f0ebe1;
     vertical-align: middle;
+    transition: background-color 0.2s ease;
 }
 
-tr:last-child td {
-    border-bottom: none;
+tr:not(:last-child) td {
+    border-bottom: 1px solid #f0ebe1;
 }
 
 tr:hover td {
     background-color: #f9f7f2;
+}
+
+tr:nth-child(even) td {
+    background-color: #faf8f3;
+}
+
+tr:nth-child(even):hover td {
+    background-color: #f5f2ea;
 }
 
 .edit-link {
@@ -157,86 +68,119 @@ tr:hover td {
     text-decoration: none;
     transition: all 0.3s ease;
     font-family: 'Rajdhani';
-    padding: 6px 12px;
+    padding: 8px 16px;
     border-radius: 6px;
     background-color: #f0ebe1;
     display: inline-block;
+    border: 1px solid #d8d1c0;
+    font-size: 14px;
 }
 
 .edit-link:hover {
     color: #fffbf4;
     background-color: #565449;
-    text-decoration: none;
+    border-color: #565449;
+}
+
+/* Status badges for roles */
+td[data-label="Ruolo"] {
+    position: relative;
+    font-weight: 600;
+    font-family: 'Rajdhani';
+}
+
+td[data-label="Ruolo"]::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: #888;
+}
+
+td[data-label="Ruolo"][data-role="Administrator"]::before {
+    background-color: #E24343;
+}
+
+td[data-label="Ruolo"][data-role="Secretary"]::before {
+    background-color: #4BC047;
+}
+
+td[data-label="Ruolo"][data-role="Totem"]::before {
+    background-color: #565449;
 }
 
 /* Responsive table */
 @media (max-width: 768px) {
     .container {
-        padding: 20px 15px;
+        padding: 15px;
     }
     
-    .top-bar {
-        padding: 10px 15px;
-        flex-wrap: wrap;
-        height: auto;
-        gap: 10px;
-    }
-    
-    .logo {
-        height: 40px;
-        order: 1;
-    }
-    
-    .top-bar .logout-a {
-        order: 3;
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-    
-    .top-bar .visits-btn {
-        order: 2;
-        padding: 6px 12px;
-        height: auto;
-        font-size: 13px;
+    .table-container {
+        padding: 0;
+        border-radius: 10px;
     }
     
     table {
         display: block;
-        overflow-x: auto;
+        width: 100%;
     }
     
     th, td {
-        padding: 10px 12px;
+        padding: 12px 15px;
         font-size: 14px;
     }
     
-    /* Responsive table cells */
-    td {
-        position: relative;
-        padding-left: 50%;
+    /* Card-like layout for mobile */
+    tr {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #e0d9c8;
     }
     
-    td:before {
-        position: absolute;
-        left: 12px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border: none;
+    }
+    
+    td::before {
         content: attr(data-label);
         font-weight: 600;
         color: #888;
         font-family: 'Rajdhani';
+        margin-right: 15px;
+    }
+    
+    td[data-label] {
+        padding-left: 0;
+    }
+    
+    .edit-link {
+        margin-left: auto;
+    }
+    
+    /* Hide table header on mobile */
+    thead {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     h2 {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 20px;
     }
     
     .success-message {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .edit-link {
+        padding: 6px 12px;
     }
 }

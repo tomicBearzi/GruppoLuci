@@ -42,30 +42,30 @@ $result = $conn->query("SELECT * FROM users");
         <h2>Lista Utenti</h2>
         
         <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Nome</th>
-                        <th>Cognome</th>
-                        <th>Ruolo</th>
-                        <th>Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($user = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td data-label="ID"><?= $user['id'] ?></td>
-                        <td data-label="Email"><?= $user['email'] ?></td>
-                        <td data-label="Nome"><?= $user['first_name'] ?></td>
-                        <td data-label="Cognome"><?= $user['last_name'] ?></td>
-                        <td data-label="Ruolo"><?= $user['Role'] ?></td>
-                        <td data-label="Azioni"><a href="edit_user.php?id=<?= $user['id'] ?>" class="edit-link">Modifica</a></td>
-                    </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Ruolo</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($user = $result->fetch_assoc()): ?>
+                <tr>
+                    <td data-label="ID"><?= $user['id'] ?></td>
+                    <td data-label="Email"><?= $user['email'] ?></td>
+                    <td data-label="Nome"><?= $user['first_name'] ?></td>
+                    <td data-label="Cognome"><?= $user['last_name'] ?></td>
+                    <td data-label="Ruolo" data-role="<?= $user['Role'] ?>"><?= $user['Role'] ?></td>
+                    <td data-label="Azioni"><a href="edit_user.php?id=<?= $user['id'] ?>" class="edit-link">Modifica</a></td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
         </div>
     </div>
 </body>
