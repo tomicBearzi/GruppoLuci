@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssi", $first_name, $last_name, $role, $id);
     $stmt->execute();
     
-    header("Location: user_list.php?sucsess=1");
+    header("Location: user_list.php?success=1");
     exit;
 }
 
