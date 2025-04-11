@@ -21,7 +21,7 @@ $result = $conn->query("SELECT * FROM users");
 <div class="top-bar">
         <img class="logo" src="img/logo.svg">
         <?  if (!isset($_SESSION['authenticated'])) { ?>
-                <a class="logout-a" href="logout.php">Logout</a>
+                <a class="logout-btn" href="logout.php">Logout</a>
         <?  } ?>
         <form action="in_progress_visits.php" method="get">
             <button type="submit" class="visits-btn">Visite in corso</button>
@@ -29,15 +29,6 @@ $result = $conn->query("SELECT * FROM users");
     </div>
     
     <div class="container">
-        <div class="action-buttons">
-            <form action="logout.php" method="post">
-                <button type="submit" class="logout-btn">Logout</button>
-            </form>
-            <form action="in_progress_visits.php" method="get">
-                <button type="submit" class="visits-btn">Visite in corso</button>
-            </form>
-        </div>
-
         <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
             <div class="success-message">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

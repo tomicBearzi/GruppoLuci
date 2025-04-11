@@ -14,17 +14,54 @@ body {
 
 .top-bar {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     height: 9vh;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     background-color: #565449;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .logo {
     height: 100%;
     filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(2085%) hue-rotate(53deg) brightness(116%) contrast(118%);
+}
+
+.top-bar .logout-a {
+    color: #fffbf4;
+    text-decoration: none;
+    font-family: 'Rajdhani';
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px;
+    background-color: #E24343;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.top-bar .logout-a:hover {
+    background-color: #c03939;
+}
+
+.top-bar .visits-btn {
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Rajdhani';
+    font-weight: 600;
+    color: #fffbf4;
+    text-transform: uppercase;
+    background-color: #4BC047;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.top-bar .visits-btn:hover {
+    background-color: #3aa037;
 }
 
 .container {
@@ -34,48 +71,7 @@ body {
 }
 
 .action-buttons {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-button {
-    height: 45px;
-    font-size: 16px;
-    font-family: 'Rajdhani';
-    font-weight: 600;
-    color: #fffbf4;
-    text-transform: uppercase;
-    background-color: #565449;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    padding: 0 20px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-}
-
-button:hover {
-    background-color: #35342d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.logout-btn {
-    background-color: #E24343;
-}
-
-.logout-btn:hover {
-    background-color: #c03939;
-}
-
-.visits-btn {
-    background-color: #4BC047;
-}
-
-.visits-btn:hover {
-    background-color: #3aa037;
+    display: none; /* Hidden since buttons are now in top-bar */
 }
 
 .success-message {
@@ -179,12 +175,29 @@ tr:hover td {
         padding: 20px 15px;
     }
     
-    .action-buttons {
-        flex-direction: column;
+    .top-bar {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 10px;
     }
     
-    button {
-        width: 100%;
+    .logo {
+        height: 40px;
+        order: 1;
+    }
+    
+    .top-bar .logout-a {
+        order: 3;
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .top-bar .visits-btn {
+        order: 2;
+        padding: 6px 12px;
+        height: auto;
+        font-size: 13px;
     }
     
     table {
